@@ -98,17 +98,4 @@
   ];
  
   programs.alacritty.enable = true;
-
-  services = {
-    dunst = {
-      enable = true;
-      settings = {
-        global = {
-          font = "JetBrains Mono 10";
-          geometry = "300x5-30+20";
-          frame_width = 1;
-        };
-      };
-    };
-  };
 }
