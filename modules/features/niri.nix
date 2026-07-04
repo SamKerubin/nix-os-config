@@ -17,8 +17,8 @@
           (lib.getExe pkgs.firefox)
           "/etc/profiles/per-user/sam/bin/discord"
           "/etc/profiles/per-user/sam/bin/spotify"
-          "${lib.getExe pkgs.niri} msg action focus-workspace browser"
-          "${lib.getExe pkgs.bash} -c wl-paste --watch ${lib.getExe pkgs.cliphist} store"
+          "niri msg action focus-workspace browser"
+          "bash -c wl-paste --watch cliphist store"
         ];
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
@@ -39,7 +39,6 @@
           };
 
           warp-mouse-to-focus = {};
-          focus-follows-mouse = {};
         };
 
         layout = {
@@ -59,18 +58,19 @@
 
           focus-ring = {
             width = 1.5;
-            active-color = "rgba(125, 100, 120, 0.1)";
-            inactive-color = "rgba(50, 50, 50, 0.1)";
+            active-color = "rgba(120, 100, 120, 0.5)";
+            inactive-color = "rgba(50, 50, 50, 0.5)";
           };
 
           border = {
             off = {};
+            width = 1.5;
           };
 
           shadow = {
             softness = 30;
             spread = 5;
-            color = "#0007";
+            color = "#00000066";
             offset = {};
           };
 
@@ -101,6 +101,50 @@
             geometry-corner-radius = 15;
             clip-to-geometry = true;
           }
+          {
+            matches = [
+              { app-id = "firefox"; }
+              { app-id = "nvim"; }
+              { app-id = "GitHub Desktop"; }
+              { app-id = "discord"; }
+              { app-id = "Spotify"; }
+            ];
+            open-maximized = true;
+            open-focused = false;
+          }
+          {
+            matches = [
+              { app-id = "firefox"; }
+            ];
+            open-on-workspace = "browser";
+          }
+          {
+            matches = [
+              { app-id = "nvim"; }
+              { app-id = "GitHub Desktop"; }
+            ];
+            open-on-workspace = "dev";
+          }
+          {
+            matches = [
+              { app-id = "discord"; }
+              { app-id = "Spotify"; }
+            ];
+            open-on-workspace = "chat";
+          }
+          {
+            matches = [
+              { app-id = "nvim"; }
+              { app-id = "kitty"; }
+            ];
+            opacity = 0.8;
+          }
+          {
+            matches = [
+              { title = "^Picture-in-Picture$"; }
+            ];
+            open-floating = true;
+          }
         ];
 
         # TODO: Add workspaces and window rules
@@ -111,14 +155,15 @@
           "Super+Q".close-window = {};
           "Super+B".spawn-sh = lib.getExe pkgs.firefox;
           "Super+E".spawn-sh = "${lib.getExe pkgs.nautilus} --new-window";
-          "Super+Ctrl+V".spawn-sh = "${lib.getExe pkgs.bash} -c ${lib.getExe pkgs.cliphist} list | ${lib.getExe pkgs.rofi} -dmenu | ${lib.getExe pkgs.cliphist} decode | wl-copy";
+          "Super+Ctrl+V".spawn-sh = "bash -c cliphist list | rofi -dmenu | cliphist decode | wl-copy";
           "Super+Ctrl+D".spawn-sh = "/etc/profiles/per-user/sam/bin/discord";
           "Super+Ctrl+M".spawn-sh = "/etc/profiles/per-user/sam/bin/steam";
           "Super+Ctrl+O".spawn-sh = "/etc/profiles/per-user/sam/bin/spotify";
-          "Super+Ctrl+N".spawn-sh = "${lib.getExe pkgs.kitty} --class=nvim -- /home/sam/open-nvim.sh";
+          "Super+Ctrl+N".spawn-sh = "kitty --class=nvim -- /home/sam/open-nvim.sh";
           "Super+Ctrl+Return".spawn-sh = "${lib.getExe self'.packages.samNoctalia} ipc call launcher toggle";
           "Super+O".toggle-overview = {};
-          "Super+Shift+Q".spawn-sh = "${lib.getExe pkgs.bash} -c ${lib.getExe pkgs.niri} msg -j focused-window | ${lib.getExe pkgs.jq} '.pid' | xargs kill -9";
+          "Super+Shift+Q".spawn-sh = "bash -c 'niri msg -j focused-window | jq \".pid\" | xargs kill -9'";
+          "Super+Ctrl+Q".spawn-sh = "${lib.getExe self'.packages.samNoctalia} ipc call session";
           "Super+1".focus-workspace = 1;
           "Super+2".focus-workspace = 2;
           "Super+3".focus-workspace = 3;

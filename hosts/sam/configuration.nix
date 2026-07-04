@@ -63,6 +63,8 @@
     shell = pkgs.zsh;
   };
 
+  services.flatpak.enable = true;
+
   programs.firefox.enable = true;
 
   programs.steam = {

@@ -16,7 +16,7 @@
       test -f ~/.p10k.zsh && source ~/.p10k.zsh
     '';
     shellAliases = {
-      ls = "lsd -alh --color=auto";
+      os-test = "sudo nixos-rebuild  test --flake ~/nix-os-config#sam";
       os-rebuild = "sudo nixos-rebuild switch --flake ~/nix-os-config#sam";
       os-update = "sudo nixos-rebuild switch --flake ~/nix-os-config/#sam --upgrade";
 
@@ -28,6 +28,14 @@
 
       cat = "bat";
       grep = "rg";
+      nano = "nvim";
+      ls = "lsd -alh --color=auto";
+
+      en0 = "sh enable-steam 0";
+      en1 = "sh enable-steam 1";
+      ipinfo = "ip -c a";
+
+      make-corefiles-dir="mkdir -p /tmp/corefiles && chmod 1777 /tmp/corefiles";
     };
   };
 }
