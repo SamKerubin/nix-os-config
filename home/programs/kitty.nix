@@ -6,8 +6,6 @@
       size = 12;
     };
 
-    themeFile = "catppuccin";
-
     settings = {
       background_opacity = "0.9";
       confirm_os_window_close = "0";

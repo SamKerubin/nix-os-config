@@ -81,6 +81,7 @@
     libnotify
     pavucontrol
     blueman
+    playerctl
 
     ranger
     trash-cli
