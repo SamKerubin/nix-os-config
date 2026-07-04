@@ -93,6 +93,7 @@
     noto-fonts
     fira-code
     jetbrains-mono
+    meslo-lgs-nf
   ];
  
   programs.alacritty.enable = true;

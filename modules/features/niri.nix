@@ -9,9 +9,9 @@
   perSystem = { pkgs, lib, self', ... }: {
     packages.samNiri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
-      
+
       settings = {
-        prefer-no-csd = {};
+        prefer-no-csd = true;
         spawn-at-startup = [
           (lib.getExe self'.packages.samNoctalia)
         ];
@@ -39,12 +39,14 @@
 
         layout = {
           gaps = 8;
-          
+
           center-focused-column = "never";
-    
-          preset-column-widths = {
-            proportion = 0.66667;
-          };
+
+          preset-column-widths = [
+            { proportion = 0.33333; }
+            { proportion = 0.5; }
+            { proportion = 0.66667; }
+          ];
 
           default-column-width = {
             proportion = 0.5;
@@ -59,11 +61,12 @@
           border = {
             off = {};
           };
-          
+
           shadow = {
             softness = 30;
             spread = 5;
             color = "#0007";
+            offset = {};
           };
 
           struts = {};
@@ -73,8 +76,22 @@
 
         animations = {};
         hotkey-overlay = {
-          skip-at-startup = {};
+          skip-at-startup = true;
         };
+
+        workspaces = {
+          "browser" = {};
+          "dev" = {};
+          "chat" = {};
+          "extras" = {};
+        };
+
+        window-rules = [
+          {
+            geometry-corner-radius = 15;
+            clip-to-geometry = true;
+          }
+        ];
 
         # TODO: Add workspaces and window rules
         # Add spawn-at-startup rules

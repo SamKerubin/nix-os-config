@@ -32,8 +32,8 @@
 
   services.xserver.enable = true;
 
-  # services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
   services.xserver.xkb = {
     layout = "latam";
@@ -60,6 +60,7 @@
     packages = with pkgs; [
       # kdePackages.kate
     ];
+    shell = pkgs.zsh;
   };
 
   programs.firefox.enable = true;
@@ -71,6 +72,7 @@
   };
 
   programs.gamemode.enable = true;
+  programs.zsh.enable = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

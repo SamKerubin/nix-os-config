@@ -2,13 +2,16 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
     oh-my-zsh = {
       enable = true;
-      theme = "powerlevel10k/powerlevel10k";
     };
+
+    initExtraFirst = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+    '';
+
     initContent = ''
       test -f ~/.p10k.zsh && source ~/.p10k.zsh
     '';
@@ -28,6 +31,4 @@
     };
   };
 }
-
-
 
