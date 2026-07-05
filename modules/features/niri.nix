@@ -105,13 +105,20 @@
           {
             matches = [
               { app-id = "firefox"; }
-              { app-id = "nvim"; }
+              { app-id = "^nvim$"; }
               { app-id = "GitHub Desktop"; }
               { app-id = "discord"; }
               { app-id = "Spotify"; }
             ];
             open-maximized = true;
             open-focused = false;
+          }
+          {
+            matches = [
+              { app-id = "^nvim-terminal$"; }
+            ];
+            open-maximized = true;
+            open-on-workspace = "dev";
           }
           {
             matches = [
