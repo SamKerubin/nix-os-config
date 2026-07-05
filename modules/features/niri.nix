@@ -46,6 +46,8 @@
 
           center-focused-column = "never";
 
+          background-color = "transparent";
+
           preset-column-widths = [
             { proportion = 0.33333; }
             { proportion = 0.5; }
@@ -147,8 +149,14 @@
           }
         ];
 
-        # TODO: Add workspaces and window rules
-        # Add spawn-at-startup rules
+        layer-rules = [
+          {
+            matches = [
+              { namespace = "^noctalia-wallpaper*"; }
+            ];
+            place-within-backdrop = true;
+          }
+        ];
 
         binds = {
           "Super+Return".spawn-sh = lib.getExe pkgs.kitty;

@@ -38,7 +38,7 @@
       extraFiles = {
         "ftplugin/c.lua".text = ''
           vim.bo.tabstop = 4;
-          vim.bo.shifwidth = 4;
+          vim.bo.shiftwidth = 4;
           vim.bo.softtabstop = 4;
         '';
       };

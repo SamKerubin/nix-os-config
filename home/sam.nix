@@ -72,6 +72,9 @@
     bear
     gdb
     clang-tools
+    cargo
+    rustc
+    nil
 
     grim
     slurp
