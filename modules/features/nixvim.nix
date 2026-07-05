@@ -64,15 +64,7 @@
             };
           };
         };
-
-        # neotree = {
-        #   enable = true;
-        #   settings = {
-        #     close_if_last_window = true;
-        #     popup_border_style = "rounded";
-        #   };
-        # };
-
+    
         lsp = {
           enable = true;
           servers = {
@@ -131,7 +123,6 @@
           };
         };
 
-        # mason.enable = true;
         luasnip.enable = true;
         bufferline.enable = true;
         which-key.enable = true;
@@ -168,7 +159,6 @@
         hlsearch = true;
         incsearch = true;
         termguicolors = true;
-        # autoformat = false;
         mouse = "a";
         signcolumn = "yes";
         updatetime = 50;
@@ -178,30 +168,69 @@
       };
 
       extraConfigLua = ''
+        -- Leader
         vim.g.mapleader = " "
         vim.g.maplocalleader = " "
 
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to Definition"})
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Hover"})
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {desc = "Rename"})
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Code action"})
-        vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {desc = "File explorer"})
-        vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", {desc = "Find files"})
-        vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", {desc = "Search text"})
-        vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", {desc = "List buffers"})
-        vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {desc = "Help"})
-        vim.keymap.set("n", "<leader>ft", function() local cwd = vim.fn.getcwd(); vim.fn.jobstart({"kitty", "--class", "nvim-terminal", "--directory", cwd}); end, {desc = "Open terminal"})
-        vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {desc = "Save"})
-        vim.keymap.set("n", "<C-h>", "<C-w>h", {desc = "Move left"})
-        vim.keymap.set("n", "<C-j>", "<C-w>j", {desc = "Move down"})
-        vim.keymap.set("n", "<C-k>", "<C-w>k", {desc = "Move up"})
-        vim.keymap.set("n", "<C-l>", "<C-w>l", {desc = "Move right"})
-        vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", {desc = "Save"})
-        vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", {desc = "Close"})
+        -- Windows
+        vim.keymap.set("n", "<C-h>", "<C-w>h", {desc = "Focus left"})
+        vim.keymap.set("n", "<C-j>", "<C-w>j", {desc = "Focus down"})
+        vim.keymap.set("n", "<C-k>", "<C-w>k", {desc = "Focus up"})
+        vim.keymap.set("n", "<C-l>", "<C-w>l", {desc = "Focus right"})
+
+        -- Buffers
         vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", {desc = "Close buffer"})
         vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#<CR>", {desc = "Close other buffers"})
         vim.keymap.set("n", "<leader>b]", "<cmd>bnext<CR>", {desc = "Go to next buffer"})
         vim.keymap.set("n", "<leader>b[", "<cmd>bprev<CR>", {desc = "Go to previous buffer"})
+        vim.keymap.set("n", "<leader>bk", "<cmd>BufferLineMoveNext<CR>", {desc = "Move buffer right"})
+        vim.keymap.set("n", "<leader>bj", "<cmd>BufferLineMovePrev<CR>", {desc = "Move buffer left"})
+
+        -- Files
+        vim.keymap.set("n", "<C-s>", "<cmd>wa<CR>", {desc = "Save all"})
+        vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", {desc = "Save"})
+        vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", {desc = "Close"})
+        vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", {desc = "Close all"})
+
+        -- LSP
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition"})
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {desc = "Go to declaration"})
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Hover"})
+        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, {desc = "Signature help"})
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {desc = "Rename"})
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Code action"})
+        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {desc = "Open diagnostic"})
+        vim.keymap.set("n", "<leader>d]", vim.diagnostic.goto_next, {desc = "Prev diagnostic"})
+        vim.keymap.set("n", "<leader>d[", vim.diagnostic.goto_prev, {desc = "Next diagnostic"})
+
+        -- Neotree
+        vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {desc = "File explorer"})
+        
+        -- Telescope
+        vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", {desc = "Find files"})
+        vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", {desc = "Search text"})
+        vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", {desc = "List buffers"})
+        vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {desc = "Help"})
+        vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", {desc = "Recent files"})
+        vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>", {desc = "Git status"})
+        vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", {desc = "Git commits"})
+
+        -- Git
+        vim.keymap.set("n", "<leader>h]", "<cmd>lua require('gitsigns').next_hunk()<CR>", {desc = "Next hunk"})
+        vim.keymap.set("n", "<leader>h[", "<cmd>lua require('gitsigns').prev_hunk()<CR>", {desc = "Prev hunk"})
+
+        -- Conform 
+        vim.keymap.set("n", "<leader>F", "<cmd>lua require('conform').format({async = true})<CR>", {desc = "Format file"})
+
+        -- Noice 
+        vim.keymap.set("n", "<Esc>", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss notification"})
+
+        -- Todo 
+        vim.keymap.set("n", "t]", "<cmd>lua require('todo-comments').jump_next()<CR>", {desc = "Go to next TODO"})
+        vim.keymap.set("n", "t[", "<cmd>lua require('todo-comments').jump_perv()<CR>", {desc = "Go to prev TODO"})
+        
+        -- Terminal
+        vim.keymap.set("n", "<leader>ft", function() local cwd = vim.fn.getcwd(); vim.fn.jobstart({"kitty", "--class", "nvim-terminal", "--directory", cwd}); end, {desc = "Open terminal"})
 
         require("telescope").load_extension("fzf")
         require("neo-tree").setup({})
