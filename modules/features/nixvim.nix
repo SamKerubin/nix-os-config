@@ -190,6 +190,7 @@
         vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", {desc = "Search text"})
         vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", {desc = "List buffers"})
         vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {desc = "Help"})
+        vim.keymap.set("n", "<leader>ft", function() local cwd = vim.fn.getcwd(); vim.fn.jobstart({"kitty", "--directory", cwd}); end, {desc = "Open terminal"})
         vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {desc = "Save"})
         vim.keymap.set("n", "<C-h>", "<C-w>h", {desc = "Move left"})
         vim.keymap.set("n", "<C-j>", "<C-w>j", {desc = "Move down"})
@@ -199,8 +200,8 @@
         vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", {desc = "Close"})
         vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", {desc = "Close buffer"})
         vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#<CR>", {desc = "Close other buffers"})
-        vim.keymap.set("n", "<leader>b]", "<cmd>bnext", {desc = "Go to next buffer"})
-        vim.keymap.set("n", "<leader>b[", "<cmd>bprev", {desc = "Go to previous buffer"})
+        vim.keymap.set("n", "<leader>b]", "<cmd>bnext<CR>", {desc = "Go to next buffer"})
+        vim.keymap.set("n", "<leader>b[", "<cmd>bprev<CR>", {desc = "Go to previous buffer"})
 
         require("telescope").load_extension("fzf")
         require("neo-tree").setup({})
