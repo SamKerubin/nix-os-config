@@ -140,6 +140,7 @@
         todo-comments.enable = true;
         conform-nvim.enable = true;
         lint.enable = true;
+        web-devicons.enable = true;
       };
 
       extraPlugins = with pkgs.vimPlugins; [
