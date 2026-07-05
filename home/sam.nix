@@ -30,6 +30,7 @@
     htop
     btop
     fastfetch
+    figlet
 
     # neovim
 

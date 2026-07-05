@@ -137,6 +137,7 @@
       extraPlugins = with pkgs.vimPlugins; [
         comment-nvim
         neo-tree-nvim
+        snacks-nvim
       ];
 
       colorschemes.catppuccin = {
@@ -235,6 +236,32 @@
         require("telescope").load_extension("fzf")
         require("neo-tree").setup({})
         require("Comment").setup()
+
+        require("snacks").setup({
+          dashboard = {
+            enabled = true,
+            preset = {
+              header = [[
+                                                        ░██                        ░██████  
+                                                                                  ░██   ░██ 
+░█████████████   ░███████  ░██    ░██    ░██ ░██    ░██ ░██░█████████████               ░██ 
+░██   ░██   ░██ ░██    ░██ ░██    ░██    ░██ ░██    ░██ ░██░██   ░██   ░██    ░██   ░█████  
+░██   ░██   ░██ ░█████████  ░██  ░████  ░██   ░██  ░██  ░██░██   ░██   ░██              ░██ 
+░██   ░██   ░██ ░██          ░██░██ ░██░██     ░██░██   ░██░██   ░██   ░██        ░██   ░██ 
+              ░██   ░██   ░██  ░███████     ░███   ░███       ░███    ░██░██   ░██   ░██    ░██  ░██████                
+
+              ]],
+            },
+            sections = {
+              { section = "header" },
+              { section = "projects", title = "Projects", padding = 1 },
+              { section = "recent_files", title = "Recent files", padding = 1 },
+            },
+          },
+          picker = {
+            enabled = true
+          },
+        })
       '';
 
       extraFiles = {
