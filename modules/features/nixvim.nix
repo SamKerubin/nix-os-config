@@ -34,19 +34,9 @@
 
         treesitter = {
           enable = true;
-          grammarPackages = with pkgs.tree-sitter-grammars; [
-            tree-sitter-c
-            tree-sitter-lua
-            tree-sitter-python
-            tree-sitter-rust
-            tree-sitter-json
-            tree-sitter-yaml
-            tree-sitter-markdown
-            tree-sitter-nix
-            tree-sitter-java
-            tree-sitter-typescript
-            tree-sitter-bash
-          ];
+  
+          grammarPackages = config.programs.nixvim.plugins.treesitter.package.passthru.allGrammars;
+          
           settings = {
             highlight.enable = true;
             indent.enable = true;
@@ -191,6 +181,9 @@
         vim.g.maplocalleader = " "
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to Definition"})
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Hover"})
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {desc = "Rename"})
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Code action"})
         vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {desc = "File explorer"})
         vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", {desc = "Find files"})
         vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", {desc = "Search text"})
@@ -205,9 +198,11 @@
         vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", {desc = "Close"})
         vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", {desc = "Close buffer"})
         vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#<CR>", {desc = "Close other buffers"})
+        vim.keymap.set("n", "<leader>b]", "<cmd>bnext", {desc = "Go to next buffer"})
+        vim.keymap.set("n", "<leader>b[", "<cmd>bprev", {desc = "Go to previous buffer"})
 
         require("telescope").load_extension("fzf")
-        require("neo-tree").setup()
+        require("neo-tree").setup({})
         require("Comment").setup()
       '';
 
