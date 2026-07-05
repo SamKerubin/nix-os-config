@@ -31,8 +31,8 @@
       nano = "nvim";
       ls = "lsd -alh --color=auto";
 
-      en0 = "sh enable-steam 0";
-      en1 = "sh enable-steam 1";
+      en0 = "enable-steam 0";
+      en1 = "enable-steam 1";
       ipinfo = "ip -c a";
 
       make-corefiles-dir="mkdir -p /tmp/corefiles && chmod 1777 /tmp/corefiles";

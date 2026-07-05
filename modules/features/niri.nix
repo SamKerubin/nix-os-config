@@ -167,7 +167,7 @@
           "Super+Ctrl+D".spawn-sh = "/etc/profiles/per-user/sam/bin/discord";
           "Super+Ctrl+M".spawn-sh = "/etc/profiles/per-user/sam/bin/steam";
           "Super+Ctrl+O".spawn-sh = "/etc/profiles/per-user/sam/bin/spotify";
-          "Super+Ctrl+N".spawn-sh = "kitty --class=nvim -- /home/sam/open-nvim.sh";
+          "Super+Ctrl+N".spawn-sh = "kitty --class=nvim -- open-nvim";
           "Super+Ctrl+Return".spawn-sh = "${lib.getExe self'.packages.samNoctalia} ipc call launcher toggle";
           "Super+O".toggle-overview = {};
           "Super+Shift+Q".spawn-sh = "bash -c 'niri msg -j focused-window | jq \".pid\" | xargs kill -9'";

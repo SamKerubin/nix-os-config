@@ -102,7 +102,8 @@
     (pkgs.writeShellApplication {
       name = "enable-steam";
       text = ''
-        steam-path=~/.local/share/Steam/ubuntu12_64/steamwebhelper
+        steam_path=~/.local/share/Steam/ubuntu12_64/steamwebhelper
+        enable=$1
         if (( enable == 1  )); then
           sudo chattr -i $steam_path
           sudo chmod a+x $steam_path
@@ -118,9 +119,10 @@
     (pkgs.writeShellApplication {
       name = "open-nvim";
       text = ''
-        ranger --choosedir=$home/.rangerdir
-        lastdir=`cat $home/.rangerdir`
-        cd "$lastdir" && notify-send "changed to $(pwd)" || notify-send "something failed"; exit
+        ranger --choosedir="$HOME/.rangerdir"
+        lastdir=$(cat "$HOME/.rangerdir")
+        cd "$lastdir" || exit
+        notify-send "changed to $(pwd)" 
         nvim
       '';
     })
