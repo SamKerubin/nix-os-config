@@ -148,7 +148,7 @@
             "deviceNativePath": "__default__",
             "displayMode": "graphic-clean",
             "hideIfIdle": false,
-            "hideIfNotDetected": true,
+            "hideIfNotDetected": false,
             "id": "Battery",
             "showNoctaliaPerformance": false,
             "showPowerProfiles": false
@@ -303,7 +303,7 @@
     "wallpaper": {
       "enabled": true,
       "overviewEnabled": false,
-      "directory": "/home/sam/Pictures/Wallpapers",
+      "directory": "/home/sam/Pictures/Imgs",
       "monitorDirectories": [],
       "enableMultiMonitorDirectories": false,
       "showHiddenFiles": false,
@@ -696,28 +696,28 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "winit": "/home/sam/Pictures/Imgs/bg4.png"
+      "eDP-1": "/home/sam/Pictures/Imgs/bg2.png"
     },
     "desktopWidgetsEditMode": false,
     "display": {
-      "winit": {
-        "name": "winit",
+      "eDP-1": {
+        "name": "eDP-1",
         "connected": true,
         "scale": 1,
-        "width": 1280,
-        "height": 800,
+        "width": 1920,
+        "height": 1080,
         "x": 0,
         "y": 0,
-        "physical_width": 0,
-        "physical_height": 0,
-        "refresh_rate": 60000,
-        "vrr_supported": false,
+        "physical_width": 340,
+        "physical_height": 190,
+        "refresh_rate": 60001,
+        "vrr_supported": true,
         "vrr_enabled": false,
-        "transform": "Flipped180"
+        "transform": "Normal"
       }
     },
     "notificationsState": {
-      "lastSeenTs": 0
+      "lastSeenTs": 1783204923000
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.7"
