@@ -176,8 +176,8 @@
           "Super+Ctrl+N".spawn-sh = "kitty --class=nvim -- open-nvim";
           "Super+Ctrl+Return".spawn-sh = "${lib.getExe self'.packages.samNoctalia} ipc call launcher toggle";
           "Super+O".toggle-overview = {};
-          "Super+Shift+Q".spawn-sh = "bash -c 'niri msg -j focused-window | jq \".pid\" | xargs kill -9'";
-          "Super+Ctrl+Q".spawn-sh = "${lib.getExe self'.packages.samNoctalia} ipc call session";
+          "Super+Shift+Q".spawn-sh = "bash -c 'niri msg -j focused-window' | jq '.pid' | xargs kill -9";
+          "Super+Ctrl+Q".spawn-sh = "${lib.getExe self'.packages.samNoctalia} ipc call sessionMenu toggle";
           "Super+1".focus-workspace = 1;
           "Super+2".focus-workspace = 2;
           "Super+3".focus-workspace = 3;
