@@ -15,6 +15,10 @@
         spawn-at-startup = [
           (lib.getExe self'.packages.samNoctalia)
           (lib.getExe pkgs.firefox)
+          "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XCURSOR_SIZE XCURSOR_THEME"
+          "dbus-update-activation-environment --all"
+          "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XCURSOR_SIZE XCURSOR_THEME"
+
           "/etc/profiles/per-user/sam/bin/discord"
           "/etc/profiles/per-user/sam/bin/spotify"
           "niri msg action focus-workspace browser"
@@ -84,11 +88,6 @@
         animations = {};
         hotkey-overlay = {
           skip-at-startup = true;
-        };
-
-        cursor = {
-          xcursor-theme = "breeze-cursor";
-          xcursor-size = 32;
         };
 
         workspaces = {
