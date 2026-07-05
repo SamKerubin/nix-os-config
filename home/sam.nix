@@ -23,7 +23,7 @@
     btop
     fastfetch
 
-    neovim
+    # neovim
 
     wget
     curl
