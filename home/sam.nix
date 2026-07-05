@@ -98,6 +98,32 @@
     fira-code
     jetbrains-mono
     meslo-lgs-nf
+
+    (pkgs.writeShellApplication {
+      name = "enable-steam";
+      text = ''
+        steam-path=~/.local/share/Steam/ubuntu12_64/steamwebhelper
+        if (( enable == 1  )); then
+          sudo chattr -i $steam_path
+          sudo chmod a+x $steam_path
+        fi
+        if (( enable == 0  )); then
+          sudo chmod a-x $steam_path
+          sudo chattr +i $steam_path
+          sudo pkill -9 steamwebhelper
+        fi
+      '';
+    })
+
+    (pkgs.writeShellApplication {
+      name = "open-nvim";
+      text = ''
+        ranger --choosedir=$home/.rangerdir
+        lastdir=`cat $home/.rangerdir`
+        cd "$lastdir" && notify-send "changed to $(pwd)" || notify-send "something failed"; exit
+        nvim
+      '';
+    })
   ];
 
   programs.alacritty.enable = true;
