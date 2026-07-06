@@ -5,6 +5,7 @@
     ./programs/git.nix
     ./programs/zsh.nix
     ./programs/kitty.nix
+    ./programs/fasfetch.nix
   ];
 
   home.username = "sam";
@@ -29,7 +30,7 @@
     tree
     htop
     btop
-    fastfetch
+    # fasfetch
     figlet
 
     # neovim
