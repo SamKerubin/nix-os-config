@@ -64,8 +64,8 @@
 
           focus-ring = {
             width = 1.5;
-            active-color = "rgba(120, 100, 120, 0.5)";
-            inactive-color = "rgba(50, 50, 50, 0.5)";
+            active-color = "rgba(203, 166, 247, 0.5)";
+            inactive-color = "rgba(113, 98, 143, 0.5)";
           };
 
           border = {

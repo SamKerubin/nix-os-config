@@ -189,6 +189,7 @@
 
         -- Files
         vim.keymap.set("n", "<C-s>", "<cmd>wa<CR>", {desc = "Save all"})
+        vim.keymap.set("i", "<C-s>", "<cmd>wa<CR>", {desc = "Save all (insert)"})
         vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", {desc = "Save"})
         vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", {desc = "Close"})
         vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", {desc = "Close all"})
