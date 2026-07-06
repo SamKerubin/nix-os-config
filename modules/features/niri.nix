@@ -223,6 +223,16 @@
           "Print".screenshot = {};
           "Ctrl+Print".screenshot-screen = {};
           "Alt+Print".screenshot-window = {};
+          "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; 
+          "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+          "XF86AudioMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "XF86AudioMicMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+          "XF86AudioPlay".spawn-sh = "playerctl play-pause";
+          "XF86AudioStop".spawn-sh = "playerctl stop";
+          "XF86AudioPrev".spawn-sh = "playerctl previous";
+          "XF86AudioNext".spawn-sh = "playerctl next";
+          "XF86MonBrightnessUp".spawn-sh = "brightnessctl --class=backlight set +10%";
+          "XF86MonBrightnessDown".spawn-sh = "brightnessctl --class=backlight set 10%-";
         };
       };
     };
