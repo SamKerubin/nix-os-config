@@ -10,7 +10,7 @@
       br = "branch";
       cm = "commit";
       st = "status";
-      unstage = "rese HEAD --";
+      unstage = "reset HEAD --";
       last = "log -1 HEAD";
       visual = "!gitk";
       lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";

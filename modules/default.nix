@@ -6,6 +6,7 @@
       self.nixosModules.niri
       self.nixosModules.homeManager
       self.nixosModules.nixvim
+      self.nixosModules.spicetify
     ];
   };
 }

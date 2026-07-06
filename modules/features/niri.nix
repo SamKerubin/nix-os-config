@@ -144,6 +144,7 @@
             matches = [
               { app-id = "nvim"; }
               { app-id = "kitty"; }
+              { app-id = "Spotify"; }
             ];
             opacity = 0.8;
           }
