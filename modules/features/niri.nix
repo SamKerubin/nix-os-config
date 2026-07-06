@@ -22,7 +22,7 @@
           "/etc/profiles/per-user/sam/bin/discord"
           "/etc/profiles/per-user/sam/bin/spotify"
           "niri msg action focus-workspace browser"
-          "bash -c wl-paste --watch cliphist store"
+          "wl-paste --watch cliphist store"
         ];
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
@@ -169,7 +169,7 @@
           "Super+Q".close-window = {};
           "Super+B".spawn-sh = lib.getExe pkgs.firefox;
           "Super+E".spawn-sh = "${lib.getExe pkgs.nautilus} --new-window";
-          "Super+Ctrl+V".spawn-sh = "bash -c cliphist list | rofi -dmenu | cliphist decode | wl-copy";
+          "Super+Ctrl+V".spawn-sh = "bash -c 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'";
           "Super+Ctrl+D".spawn-sh = "/etc/profiles/per-user/sam/bin/discord";
           "Super+Ctrl+M".spawn-sh = "/etc/profiles/per-user/sam/bin/steam";
           "Super+Ctrl+O".spawn-sh = "/etc/profiles/per-user/sam/bin/spotify";
