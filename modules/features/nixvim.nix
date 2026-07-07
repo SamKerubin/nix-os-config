@@ -291,8 +291,11 @@
             end
           end,
         })
-
         vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#888888", italic = true })
+
+        vim.opt.cursorline = true
+        vim.opt.cursorlineopt = "number"
+        vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f7cfe2", bold = true })
 
         require("telescope").load_extension("fzf")
         require("neo-tree").setup({})
