@@ -16,9 +16,9 @@
       test -f ~/.p10k.zsh && source ~/.p10k.zsh
     '';
     shellAliases = {
-      os-test = "sudo nixos-rebuild  test --flake ~/nix-os-config#sam";
+      os-test = "sudo nixos-rebuild test --flake ~/nix-os-config#sam";
       os-rebuild = "sudo nixos-rebuild switch --flake ~/nix-os-config#sam";
-      os-update = "sudo nixos-rebuild switch --flake ~/nix-os-config/#sam --upgrade";
+      os-update = "cd ~/nix-os-config && nix flake update; cd - && sudo nixos-rebuild switch --flake ~/nix-os-config#sam";
 
       gs = "git status";
       ga = "git add";
