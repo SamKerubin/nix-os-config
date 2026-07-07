@@ -7,6 +7,7 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "backup";
 
       users.sam = {
         imports = [ ../home/sam.nix ];

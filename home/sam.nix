@@ -8,18 +8,23 @@
     ./programs/fasfetch.nix
   ];
 
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+  
   home.username = "sam";
   home.homeDirectory = "/home/sam";
 
   home.stateVersion = "26.05";
-
-  home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-    gtk.enable = true;
-    x11.enable = true;
-  };
 
   home.packages = with pkgs; [
     ripgrep
