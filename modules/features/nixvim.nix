@@ -187,6 +187,10 @@
         vim.keymap.set("n", "<leader>bk", "<cmd>BufferLineMoveNext<CR>", {desc = "Move buffer right"})
         vim.keymap.set("n", "<leader>bj", "<cmd>BufferLineMovePrev<CR>", {desc = "Move buffer left"})
 
+        -- Select 
+        vim.keymap.set("v", ">", ">gv", {desc = "Indent"})
+        vim.keymap.set("v", "<", "<gv", {desc = "Unindent"})
+
         -- Files
         vim.keymap.set("n", "<C-s>", "<cmd>wa<CR>", {desc = "Save all"})
         vim.keymap.set("i", "<C-s>", "<cmd>wa<CR>", {desc = "Save all (insert)"})
@@ -233,6 +237,17 @@
         
         -- Terminal
         vim.keymap.set("n", "<leader>ft", function() local cwd = vim.fn.getcwd(); vim.fn.jobstart({"kitty", "--class", "nvim-terminal", "--directory", cwd}); end, {desc = "Open terminal"})
+
+        -- Inline hints
+        vim.api.nvim_create_autocmd("LspAttach", {
+          callback = function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if client and client.server_capabilities.inlayHintProvider then
+              vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+            end
+          end
+        })
+        vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#888888", italic = true })
 
         require("telescope").load_extension("fzf")
         require("neo-tree").setup({})
