@@ -31,7 +31,8 @@
     htop
     btop
     # fasfetch
-    figlet
+    toilet
+    cowsay
 
     # neovim
 

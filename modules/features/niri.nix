@@ -21,6 +21,8 @@
 
           "/etc/profiles/per-user/sam/bin/discord"
           "/etc/profiles/per-user/sam/bin/spotify"
+          "kitty --class toiletmsg --hold sh -c 'toilet -F border --gay FAGGOT -f mono12 -w 60; toilet -F border --gay Sam\\'s NixOS :3 -f mono12 -w 60'"
+          "kitty --class fastfetch --hold fastfetch"
           "niri msg action focus-workspace browser"
           "wl-paste --watch cliphist store"
         ];
@@ -150,9 +152,31 @@
           }
           {
             matches = [
-              { title = "^Picture-in-Picture$"; }
+              {
+                title = "^Picture-in-Picture$";
+                app-id = "^firefox$";
+              }
             ];
             open-floating = true;
+          }
+          {
+            matches = [
+              { app-id = "toiletmsg"; }
+              { app-id = "fastfetch"; }
+            ];
+            open-on-workspace = "extras";
+          }
+          {
+            matches = [
+              { app-id = "toiletmsg"; }
+            ];
+            default-column-width = { proportion = 0.5; };
+          }
+          {
+            matches = [
+              { app-id = "fastfetch"; }
+            ];
+            default-column-width = { proportion = 0.5; };
           }
         ];
 
