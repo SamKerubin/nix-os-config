@@ -275,11 +275,23 @@
         vim.api.nvim_create_autocmd("LspAttach", {
           callback = function(args)
             local client = vim.lsp.get_client_by_id(args.data.client_id)
-            if client and client.server_capabilities.inlayHintProvider then
+            if not client then return end
+
+            if client.supports_method("textDocument/inlayHint") then
               vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+            else
+              vim.api.nvim_create_autocmd("User", {
+                pattern = "LspDynamicCapabilityChange",
+                callback = function()
+                  if client.supports_method("textDocument/inlayHint") then
+                    vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+                  end
+                end,
+              })
             end
-          end
+          end,
         })
+
         vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#888888", italic = true })
 
         require("telescope").load_extension("fzf")
