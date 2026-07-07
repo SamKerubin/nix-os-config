@@ -119,6 +119,7 @@
             ts_ls.enable = true;
             vtsls.enable = true;
             bashls.enable = true;
+            neocmake.enable = true;
           };
         };
 
@@ -277,7 +278,7 @@
             local client = vim.lsp.get_client_by_id(args.data.client_id)
             if not client then return end
 
-            if client.supports_method("textDocument/inlayHint") then
+            if client:supports_method("textDocument/inlayHint") then
               vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
             else
               vim.api.nvim_create_autocmd("User", {
