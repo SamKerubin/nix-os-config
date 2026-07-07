@@ -85,6 +85,7 @@
     clang-tools
     cargo
     rustc
+    rust-analyzer
     nil
 
     grim

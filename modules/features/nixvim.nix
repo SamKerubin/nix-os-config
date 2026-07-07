@@ -75,9 +75,42 @@
               };
             };
 
+            rust_analyzer = {
+              enable = true;
+              settings = {
+                inlayHints = {
+                  parameterHints = {
+                    enable = true;
+                  };
+                  typeHints = {
+                    enable = true;
+                    hideClosureInitialization = false;
+                    hideNamedConstructor = false;
+                  };
+                  chainingHints = {
+                    enable = true;
+                  };
+                  lifetimeElisionHints = {
+                    enable = "always"; 
+                    useParameterNames = true;
+                  };
+                  closingBraceHints = {
+                    enable = true;
+                    minLength = 25;
+                  };
+                  bindingModeHints = {
+                    enable = true;
+                  };
+                  reborrowHints = {
+                    enable = "always";
+                  };
+                  renderColons = true;
+                };
+              };
+            };
+
             lua_ls.enable = true;
             pyright.enable = true;
-            rust_analyzer.enable = true;
             jsonls.enable = true;
             yamlls.enable = true;
             marksman.enable = true;
@@ -238,7 +271,7 @@
         -- Terminal
         vim.keymap.set("n", "<leader>ft", function() local cwd = vim.fn.getcwd(); vim.fn.jobstart({"kitty", "--class", "nvim-terminal", "--directory", cwd}); end, {desc = "Open terminal"})
 
-        -- Inline hints
+        -- Inlay hints
         vim.api.nvim_create_autocmd("LspAttach", {
           callback = function(args)
             local client = vim.lsp.get_client_by_id(args.data.client_id)
