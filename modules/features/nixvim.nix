@@ -156,7 +156,14 @@
             };
           };
         };
-
+        
+        direnv = {
+          enable = true;
+          settings = {
+            silent = true;
+          };
+        };
+  
         luasnip.enable = true;
         bufferline.enable = true;
         which-key.enable = true;
@@ -294,6 +301,7 @@
         })
         vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#888888", italic = true })
 
+        -- Line highlighting
         vim.opt.cursorline = true
         vim.opt.cursorlineopt = "number"
         vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f7cfe2", bold = true })
