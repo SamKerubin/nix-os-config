@@ -38,6 +38,7 @@
     # fasfetch
     toilet
     cowsay
+    direnv
 
     # neovim
 
