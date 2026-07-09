@@ -42,6 +42,7 @@
     toilet
     cowsay
     direnv
+    tealdeer
 
     # neovim
 
