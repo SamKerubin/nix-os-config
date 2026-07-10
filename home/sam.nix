@@ -43,7 +43,8 @@
     cowsay
     direnv
     tealdeer
-
+    
+    vim
     # neovim
 
     wget
