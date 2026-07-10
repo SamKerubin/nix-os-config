@@ -214,6 +214,59 @@
         vim.g.mapleader = " "
         vim.g.maplocalleader = " "
 
+        -- Line movement 
+        vim.keymap.set({"n", "v"}, "gh", "0", {desc = "Move to start of the line"});
+        vim.keymap.set({"n", "v"}, "gl", "$", {desc = "Move to end of the line"});
+        vim.keymap.set("n", "<leader>vgh", "v0", {desc = "Select to the start of the line"})
+        vim.keymap.set("n", "<leader>vgl", "v$", {desc = "Select to the end of the line"})
+
+        -- Get into normal mode
+        vim.keymap.set({"i", "v"}, "<C-c>", "<Esc>", {desc = "Get out insert/visual mode"})
+
+        -- Navigation
+        vim.keymap.set("n", "n", "nzzzv", {desc = "Search next match"})
+        vim.keymap.set("n", "N", "Nzzzv", {desc = "Search prev match"})
+        vim.keymap.set("n", "*", "*zz", {desc = "Search next match"})
+        vim.keymap.set("n", "#", "#zz", {desc = "Search prev match"})
+        vim.keymap.set("n", "<C-d>", "<C-d>zz", {desc = "Page down"})
+        vim.keymap.set("n", "<C-u>", "<C-u>zz", {desc = "Page up"})
+        vim.keymap.set("n", "{", "{zz", {desc = "Prev paragraph"})
+        vim.keymap.set("n", "}", "}zz", {desc = "Next paragraph"})
+        vim.keymap.set("n", "j", "jzz", {desc = "Move down"})
+        vim.keymap.set("n", "k", "kzz", {desc = "Move up"})
+
+        -- Undo/Redo
+        vim.keymap.set("n", "u", "uzzzv", {desc = "Undo"})
+        vim.keymap.set("n", "<C-r>", "<C-r>zz", {desc = "Redo"})
+
+        -- Search
+        vim.keymap.set("n", "-", "/", {desc = "Search pattern"})
+
+        -- Search-Replace
+        vim.keymap.set("n", "<leader>sr", function()
+            local word = vim.fn.expand("<cword>")
+            local escaped = vim.fn.escape(word, "/\\")
+            local cmd = ":%s/" .. escaped .. "//g"
+            vim.api.nvim_feedkeys(
+                vim.api.nvim_replace_termcodes(cmd .. "<Left><Left>", true, false, true),
+                "m", true
+            )
+        end, {desc = "Search and replace word under cursor"})
+
+        -- Select quotes
+        local function quote_motion(op)
+            return function()
+                local keys = op .. "/['\"`]/<CR>:nohlsearch<CR>"
+                vim.api.nvim_feedkeys(
+                    vim.api.nvim_replace_termcodes(keys, true, false, true),
+                    "m", true
+                )
+            end
+        end
+        vim.keymap.set("n", "dq", quote_motion("d"), {desc = "Delete up to next quote"})
+        vim.keymap.set("n", "yq", quote_motion("y"), {desc = "Yank up to next quote"})
+        vim.keymap.set("n", "cq", quote_motion("di"), {desc = "Change up to next quote"})
+
         -- Windows
         vim.keymap.set("n", "<C-h>", "<C-w>h", {desc = "Focus left"})
         vim.keymap.set("n", "<C-j>", "<C-w>j", {desc = "Focus down"})
@@ -233,8 +286,7 @@
         vim.keymap.set("v", "<", "<gv", {desc = "Unindent"})
 
         -- Files
-        vim.keymap.set("n", "<C-s>", "<cmd>wa<CR>", {desc = "Save all"})
-        vim.keymap.set("i", "<C-s>", "<cmd>wa<CR>", {desc = "Save all (insert)"})
+        vim.keymap.set({"n", "i"}, "<C-s>", "<cmd>wa<CR>", {desc = "Save all"})
         vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", {desc = "Save"})
         vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", {desc = "Close"})
         vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", {desc = "Close all"})
@@ -273,11 +325,14 @@
         vim.keymap.set("n", "<Esc>", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss notification"})
 
         -- Todo 
-        vim.keymap.set("n", "t]", "<cmd>lua require('todo-comments').jump_next()<CR>", {desc = "Go to next TODO"})
-        vim.keymap.set("n", "t[", "<cmd>lua require('todo-comments').jump_perv()<CR>", {desc = "Go to prev TODO"})
+        vim.keymap.set("n", "<leader>t]", "<cmd>lua require('todo-comments').jump_next()<CR>", {desc = "Go to next TODO"})
+        vim.keymap.set("n", "<leader>t[", "<cmd>lua require('todo-comments').jump_perv()<CR>", {desc = "Go to prev TODO"})
         
         -- Terminal
-        vim.keymap.set("n", "<leader>ft", function() local cwd = vim.fn.getcwd(); vim.fn.jobstart({"kitty", "--class", "nvim-terminal", "--directory", cwd}); end, {desc = "Open terminal"})
+        vim.keymap.set("n", "<leader>ft", function()
+          local cwd = vim.fn.getcwd()
+          vim.fn.jobstart({"kitty", "--class", "nvim-terminal", "--directory", cwd})
+        end, {desc = "Open terminal"})
 
         -- Inlay hints
         vim.api.nvim_create_autocmd("LspAttach", {
