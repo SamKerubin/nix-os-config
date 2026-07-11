@@ -108,6 +108,14 @@
   nix.settings.auto-optimise-store = true;
   nix.settings.max-jobs = 2;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+ 
+  system.autoUpgrade = {
+    enable = true;
+    flake = "/home/sam/nix-os-config/#sam";
+    flags = [ "--update-input" "nixpkgs" "--print-build-logs" ];
+    dates = "0 1 * * *";
+    runGarbageCollection = true;
+  }; 
+
   system.stateVersion = "26.05";
 }
