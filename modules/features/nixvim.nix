@@ -243,7 +243,7 @@
         hlsearch = true;
         incsearch = true;
         termguicolors = true;
-        mouse = "a";
+        mouse = "";
         signcolumn = "yes";
         updatetime = 50;
         timeoutlen = 300;
@@ -255,6 +255,12 @@
         -- Leader
         vim.g.mapleader = " "
         vim.g.maplocalleader = " "
+
+        -- Deactivating for learning purposes only
+        vim.keymap.set({"n", "i", "v"}, "<Left>", "<Nop>");
+        vim.keymap.set({"n", "i", "v"}, "<Up>", "<Nop>");
+        vim.keymap.set({"n", "i", "v"}, "<Right>", "<Nop>");
+        vim.keymap.set({"n", "i", "v"}, "<Down>", "<Nop>");
 
         -- Line movement 
         vim.keymap.set({"n", "v"}, "gh", "0", {desc = "Move to start of the line"});
