@@ -117,5 +117,10 @@
     runGarbageCollection = true;
   }; 
 
+  systemd.coredump.settings.Coredump = {
+    Storage = "external";
+    Compress = "no";
+  }; 
+
   system.stateVersion = "26.05";
 }
