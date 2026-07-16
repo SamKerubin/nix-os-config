@@ -97,6 +97,12 @@
     libva
   ];
 
+  documentation = {
+    enable = true;
+    dev.enable = true;
+    man.generateCaches = true;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   nix.gc = {

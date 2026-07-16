@@ -16,6 +16,7 @@
     initContent = ''
       test -f ~/.p10k.zsh && source ~/.p10k.zsh
     '';
+
     shellAliases = {
       os-test = "sudo nixos-rebuild test --flake ~/nix-os-config#sam";
       os-rebuild = "sudo nixos-rebuild switch --flake ~/nix-os-config#sam";
@@ -32,11 +33,13 @@
       cat = "bat";
       grep = "rg";
       nano = "nvim";
-      ls = "lsd -alh --color=auto";
+      ls = "lsd -Alh --color=auto";
 
       en0 = "enable-steam 0";
       en1 = "enable-steam 1";
       ipinfo = "ip -c a";
+
+      man = "MANPAGER='nvim +Man!' man"; # workaround cuz i dont understand how to set the manpager
 
       make-corefiles-dir="mkdir -p /tmp/corefiles && chmod 1777 /tmp/corefiles";
     };

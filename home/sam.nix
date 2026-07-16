@@ -16,6 +16,10 @@
     };
   };
  
+  home.sessionVariables = {
+    MANPAGER = "nvim +Man!";
+  };
+
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
@@ -43,6 +47,9 @@
     cowsay
     direnv
     tealdeer
+    man-pages
+    man-pages-posix
+    man-db
     
     vim
     # neovim
