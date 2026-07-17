@@ -151,7 +151,7 @@
               { app-id = "fastfetch"; }
               { app-id = "toiletmsg"; }
             ];
-            opacity = 0.8;
+            opacity = 0.7;
             background-effect = { blur = true; };
           }
           {

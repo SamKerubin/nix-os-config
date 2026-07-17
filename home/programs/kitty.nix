@@ -9,7 +9,8 @@
     themeFile = "Catppuccin-Mocha";
 
     settings = {
-      background_opacity = "0.8";
+      background_opacity = "0.7";
+      background_blur = "1";
       confirm_os_window_close = "0";
       enable_audio_bell = "no";
       cursor_shape = "block";
