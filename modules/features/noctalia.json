@@ -303,7 +303,7 @@
     "wallpaper": {
       "enabled": true,
       "overviewEnabled": false,
-      "directory": "/home/sam/Pictures/Imgs",
+      "directory": "/home/sam/nix-os-config/home/programs/assets/bg",
       "monitorDirectories": [],
       "enableMultiMonitorDirectories": false,
       "showHiddenFiles": false,
@@ -696,7 +696,7 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "eDP-1": "/home/sam/Pictures/Imgs/bg2.png"
+      "eDP-1": "/home/sam/Pictures/Imgs/bg3.png"
     },
     "desktopWidgetsEditMode": false,
     "display": {
@@ -717,7 +717,7 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1783204923000
+      "lastSeenTs": 1783272678000
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.7"

@@ -147,8 +147,12 @@
               { app-id = "nvim"; }
               { app-id = "kitty"; }
               { app-id = "Spotify"; }
+              { app-id = "nvim-terminal"; }
+              { app-id = "fastfetch"; }
+              { app-id = "toiletmsg"; }
             ];
             opacity = 0.8;
+            background-effect = { blur = true; };
           }
           {
             matches = [
