@@ -7,6 +7,7 @@
       self.nixosModules.homeManager
       self.nixosModules.nixvim
       self.nixosModules.spicetify
+      self.nixosModules.sddm
     ];
   };
 }
