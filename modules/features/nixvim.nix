@@ -409,6 +409,8 @@
         vim.opt.cursorlineopt = "number"
         vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f7cfe2", bold = true })
 
+        vim.cmd("set shadafile=" .. vim.fn.stdpath("data") .. "/shada")
+
         require("telescope").load_extension("fzf")
         require("neo-tree").setup({})
         require("Comment").setup()
