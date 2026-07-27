@@ -108,6 +108,11 @@
     options = "--delete-oldern-than 7d";
   };
 
+  nix.optimise = {
+    automatic = true;
+    dates = "weekly";
+  };
+
   nix.settings.auto-optimise-store = true;
   nix.settings.max-jobs = 2;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
