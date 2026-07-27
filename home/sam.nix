@@ -127,22 +127,22 @@
     jetbrains-mono
     meslo-lgs-nf
 
-    (pkgs.writeShellApplication {
-      name = "enable-steam";
-      text = ''
-        steam_path=~/.local/share/Steam/ubuntu12_64/steamwebhelper
-        enable=$1
-        if (( enable == 1  )); then
-          sudo chattr -i $steam_path
-          sudo chmod a+x $steam_path
-        fi
-        if (( enable == 0  )); then
-          sudo chmod a-x $steam_path
-          sudo chattr +i $steam_path
-          sudo pkill -9 steamwebhelper
-        fi
-      '';
-    })
+    # (pkgs.writeShellApplication {
+    #   name = "enable-steam";
+    #   text = ''
+    #     steam_path=~/.local/share/Steam/ubuntu12_64/steamwebhelper
+    #     enable=$1
+    #     if (( enable == 1  )); then
+    #       sudo chattr -i $steam_path
+    #       sudo chmod a+x $steam_path
+    #     fi
+    #     if (( enable == 0  )); then
+    #       sudo chmod a-x $steam_path
+    #       sudo chattr +i $steam_path
+    #       sudo pkill -9 steamwebhelper
+    #     fi
+    #   '';
+    # })
 
     (pkgs.writeShellApplication {
       name = "open-nvim";
