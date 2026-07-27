@@ -57,18 +57,20 @@
     shell = pkgs.zsh;
   };
 
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
+
   services.upower.enable = true;
 
   programs.firefox.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
+  # programs.steam = {
+  #   enable = true;
+  #   remotePlay.openFirewall = true;
+  #   dedicatedServer.openFirewall = true;
+  # };
+  #
+  # programs.gamemode.enable = true;
 
-  programs.gamemode.enable = true;
   programs.zsh.enable = true;
 
   programs.nix-ld.enable = true;
