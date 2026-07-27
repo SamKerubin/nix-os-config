@@ -66,19 +66,17 @@
     obsidian
     spotify
     discord
-    vinegar
-    flatpak
-    steam
-    steam-run
+    # vinegar
+    # flatpak
+    # steam
+    # steam-run
 
-    github-desktop
     github-cli
     yq
     fzf
     zoxide
     lazygit
     rofi
-    wlogout
     nautilus
     gvfs
 
