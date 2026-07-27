@@ -8,6 +8,7 @@
       self.nixosModules.nixvim
       self.nixosModules.spicetify
       self.nixosModules.sddm
+      self.nixosModules.bootloader
     ];
   };
 }

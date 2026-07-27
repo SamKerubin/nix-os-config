@@ -8,6 +8,8 @@
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
     
     home-manager = {
       url = "github:nix-community/home-manager";
