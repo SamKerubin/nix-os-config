@@ -24,6 +24,8 @@
       os-gen-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild switch --flake ~/nix-os-config#sam";
       os-boot = "sudo nixos-rebuild boot --flake ~/nix-os-config#sam";
 
+      upd-noctalia-conf = "nix run nixpkgs#noctalia-shell ipc call state all > ~/nix-os-config/modules/features/noctalia.json";
+
       gs = "git status";
       ga = "git add";
       gc = "git commit";
