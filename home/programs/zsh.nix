@@ -20,7 +20,7 @@
     shellAliases = {
       os-test = "sudo nixos-rebuild test --flake ~/nix-os-config#sam";
       os-rebuild = "sudo nixos-rebuild switch --flake ~/nix-os-config#sam";
-      os-update = "cd ~/nix-os-config && nix flake update; cd - && sudo nixos-rebuild switch --flake ~/nix-os-config#sam";
+      os-update = "cd ~/nix-os-config && nix flake update; cd - && sudo nixos-rebuild boot --flake ~/nix-os-config#sam";
       os-gen-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild switch --flake ~/nix-os-config#sam";
       os-boot = "sudo nixos-rebuild boot --flake ~/nix-os-config#sam";
 
