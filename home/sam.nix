@@ -103,6 +103,8 @@
     rustc
     rust-analyzer
     nil
+    texliveFull
+    mupdf
 
     grim
     slurp

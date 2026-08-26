@@ -204,7 +204,8 @@
           enable = true;
           fromVscode = [ {} ];
         };
-
+ 
+        vimtex.enable = true;
         friendly-snippets.enable = true;
         cmp_luasnip.enable = true;
         bufferline.enable = true;
