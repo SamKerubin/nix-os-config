@@ -95,6 +95,7 @@
     meson
     ninja
     # clang
+    pciutils
     llvm
     valgrind
     bear

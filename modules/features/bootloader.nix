@@ -23,5 +23,7 @@
 
       efi.canTouchEfiVariables = true;
     };
+
+    boot.kernelPackages = pkgs.linuxPackages_latest;
   };
 }
