@@ -120,7 +120,7 @@
     enable = true;
     flake = "/home/sam/nix-os-config/#sam";
     flags = [ "--update-input" "nixpkgs" "--print-build-logs" ];
-    dates = "0 1 * * *";
+    dates = "*-*-01 01:00:00";
     runGarbageCollection = true;
   }; 
 

@@ -66,6 +66,7 @@
     obsidian
     spotify
     discord
+    onlyoffice-desktopeditors
     # vinegar
     # flatpak
     # steam
