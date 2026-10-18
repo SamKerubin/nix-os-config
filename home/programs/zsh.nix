@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -8,12 +8,12 @@
       enable = true;
     };
 
-    initExtraFirst = ''
+    # initExtraFirst = ''
+    # '';
+
+    initContent = lib.mkBefore ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       eval "$(direnv hook zsh)"
-    '';
-
-    initContent = ''
       test -f ~/.p10k.zsh && source ~/.p10k.zsh
     '';
 

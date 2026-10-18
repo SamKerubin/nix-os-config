@@ -627,15 +627,16 @@
       "backlightDeviceMappings": []
     },
     "colorSchemes": {
-      "useWallpaperColors": false,
+      "useWallpaperColors": true,
       "predefinedScheme": "Catppuccin",
       "darkMode": true,
       "schedulingMode": "off",
       "manualSunrise": "06:30",
       "manualSunset": "18:30",
-      "generationMethod": "tonal-spot",
+      "generationMethod": "fruit-salad",
       "monitorForColors": "",
-      "syncGsettings": true
+      "syncGsettings": true,
+      "colorGenerationSource": "eDP-1"
     },
     "templates": {
       "activeTemplates": [],
