@@ -182,6 +182,13 @@
             ];
             default-column-width = { proportion = 0.5; };
           }
+          {
+            matches = [
+              { app-id = "^at\.yrlf\.wl-mirror$"; }
+            ];
+            open-on-output = "HDMI-A-1";
+            open-fullscreen = true;
+          }
         ];
 
         layer-rules = [
@@ -262,6 +269,7 @@
           "XF86AudioNext".spawn-sh = "playerctl next";
           "XF86MonBrightnessUp".spawn-sh = "brightnessctl --class=backlight set +10%";
           "XF86MonBrightnessDown".spawn-sh = "brightnessctl --class=backlight set 10%-";
+          "F8".spawn-sh = "wl-mirror eDP-1";
         };
       };
     };

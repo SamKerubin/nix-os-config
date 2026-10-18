@@ -96,6 +96,7 @@
     ninja
     # clang
     pciutils
+    iw
     llvm
     valgrind
     bear
@@ -117,6 +118,7 @@
     pavucontrol
     blueman
     playerctl
+    wl-mirror
 
     ranger
     trash-cli
