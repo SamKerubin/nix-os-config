@@ -26,12 +26,6 @@
 
       upd-noctalia-conf = "nix run nixpkgs#noctalia-shell ipc call state all > ~/nix-os-config/modules/features/noctalia.json";
 
-      gs = "git status";
-      ga = "git add";
-      gc = "git commit";
-      gp = "git push";
-      gl = "git pull";
-
       cat = "bat";
       grep = "rg";
       nano = "nvim";

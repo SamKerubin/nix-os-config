@@ -6,14 +6,22 @@
       user.name = "SamKerubin";
       user.email = "sammm.1618033@gmail.com";
 
-      aliases = {
+      alias = {
+        a = "commit --amend";
+        cam = "commit -am";
+        cm = "commit -m";
         co = "checkout";
         br = "branch";
-        cm = "commit";
-        st = "status";
+        amend = "commit --amend --no-edit";
+        s = "status";
         unstage = "reset HEAD --";
+        uncommit = "reset --soft HEAD^";
+        discard = "reset HEAD --hard";
+        discardchunk = "checkout -p";
+        fixup = "!git log --oneline --decorate @{u}.. | fzf | awk '{ print $1 }' | xargs -r git commit --fixup={}";
+        rb = "rebase -i";
+        squash = "rebase -i --autosquash";
         last = "log -1 HEAD";
-        visual = "!gitk";
         lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
       };
 

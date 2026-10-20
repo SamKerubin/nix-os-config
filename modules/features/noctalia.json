@@ -628,15 +628,13 @@
     },
     "colorSchemes": {
       "useWallpaperColors": true,
-      "predefinedScheme": "Catppuccin",
       "darkMode": true,
       "schedulingMode": "off",
       "manualSunrise": "06:30",
       "manualSunset": "18:30",
       "generationMethod": "fruit-salad",
-      "monitorForColors": "",
-      "syncGsettings": true,
-      "colorGenerationSource": "eDP-1"
+      "monitorForColors": "eDP-1",
+      "syncGsettings": true
     },
     "templates": {
       "activeTemplates": [],
